@@ -5,8 +5,15 @@ test('Radio button for DEMOQA website', async ({ page }) => {
   await page.pause()
 
   
-  await page.locator('//label[@for="yesRadio"]').click();
-  await page.locator('//label[@for="impressiveRadio"]').click();
+  await page.locator('//label[@for="yesRadio"]').check();
+  await expect(page.locator('//label[@for="yesRadio"]')).toBeChecked();
+  await expect(page.locator('//label[@for="yesRadio"]').isChecked()).toBeTruthy();
+
+
+  await page.locator('//label[@for="impressiveRadio"]').check();
+  await expect(page.locator('//label[@for="impressiveRadio"]')).toBeChecked();
+
+  await page.waitForTimeout(5000);
 
 
 });
