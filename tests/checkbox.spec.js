@@ -13,6 +13,8 @@ test('Check Angular checkbox', async ({ page }) => {
 
   await expect(page.locator('//div[@class="check-box-tree-wrapper"] //span[@class="rct-title" and text()="Angular"]')).toBeChecked()
 
+  await  expect(page.locator('//div[@class="check-box-tree-wrapper"] //span[text()="You have selected :"] /following-sibling::span[@class="text-success"]')).toHaveText('angular') 
+
   
   await page.waitForTimeout(3000)
 
