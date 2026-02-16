@@ -1,8 +1,10 @@
 import { Locator, Page, expect } from "@playwright/test";
 import { HomePage } from "./HomePage";
 import { BasePage, url } from "./base/BasePage";
-import user from "../test-data/users.json";
+import user from "../test-data/users.json"; 
+import { utils } from "../utils/testUtils";
 let homePage: HomePage;
+let utilsObj: utils;
 let basePage: BasePage;
 
 export class textBoxPage {
@@ -31,8 +33,7 @@ export class textBoxPage {
     this.currentAddressInput=page.getByPlaceholder("Current Address");
     this.permanentAddressInput=page.locator("#permanentAddress");   
     this.submitBtn=page.getByRole("button", { name: "Submit" });
- 
-    
+    utilsObj = new utils(this.page);
     
   }
   async clickTextBox() {
@@ -46,23 +47,31 @@ export class textBoxPage {
   
     
   }
-  async submitBox() {
+  async labelCheckForTexBox() {
+    
+    await this.clickTextBox() 
+    await expect(this.page.getByRole("heading", { name: "Text Box" })).toBeVisible();
     await expect(this.fullNameLabel).toBeVisible();
     await expect(this.emailLabel).toBeVisible();
     await expect(this.currentAddressLabel).toBeVisible();
     await expect(this.permanentAddressLabel).toBeVisible();
-    await this.fullNameInput.fill(user.name);       
-    await this.emailInput.fill(user.email);
-    await this.currentAddressInput.fill(user.currrentAdress);
-    await this.permanentAddressInput.fill(user.permanentAddress);
-    await this.submitBtn.click();
-    await expect(this.page.getByText(`Name:${user.name}`)).toBeVisible();
-    await expect(this.page.getByText(`Email:${user.email}`)).toBeVisible();
-    await expect(this.page.getByText(`Current Address :${user.currrentAdress}`)).toBeVisible();
-    await expect(this.page.getByText(`Permananet Address :${user.permanentAddress}`)).toBeVisible();
-
-  
+    await expect(this.page.getByRole("button", { name: "Submit" })).toBeEnabled();
 
   }
+
+  async varifyBlankSubmission() { 
+    await this.clickTextBox();
+    await this.submitBtn.click();
+    await expect(this.page.getByText("Name:")).not.toBeVisible();
+    await expect(this.page.getByText("Email:")).not.toBeVisible();
+    await expect(this.page.getByText("Current Address :")).not.toBeVisible();
+    await expect(this.page.getByText("Permananet Address :")).not.toBeVisible();
+  }
+  async submitBox() {
+    await this.clickTextBox();
+    await utilsObj.textBoxHelper(0);// Call the helper function with the index of the user data you want to use
+  }
+  
+  
   
 }
