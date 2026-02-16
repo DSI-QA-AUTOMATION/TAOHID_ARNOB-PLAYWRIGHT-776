@@ -1,7 +1,14 @@
-{
+[{
     "name": "John Doe",
     "email": "demoMail@gmail.com",
     "currrentAdress": "Dhaka",
     "permanentAddress": "Bangladesh"
     
-}
+},
+{
+    "name": "harun ur Rashid",
+    "email": "demo1Mail@gmail.com",
+    "currrentAdress": "Barisal",
+    "permanentAddress": "Bangladesh"
+
+ }]
