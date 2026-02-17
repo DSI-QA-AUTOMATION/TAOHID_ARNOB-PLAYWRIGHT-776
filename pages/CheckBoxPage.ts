@@ -8,21 +8,26 @@ export class CheckBoxPage {
   private page: Page;
   checkBox: Locator;
   checkBoxHeading: Locator;
-  homeParent: Locator;
-  homeSwitch: Locator;
-  homeParent1: Locator;
-  homeSwitch2: Locator;
-  homecheckBox: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.checkBox = page.getByText("Check Box");
     this.checkBoxHeading = page.getByRole("heading", { name: "Check Box" });
-    this.homeParent = page.getByRole("treeitem", { name: "Home" });
-    this.homecheckBox = this.homeParent.locator(".rc-tree-checkbox");
-    this.homeSwitch = this.homeParent.locator(".rc-tree-switcher");
-    this.homeParent1 = page.getByTitle("Commands");
-    this.homeSwitch2 = this.homeParent1.locator(".rc-tree-title");
+  }
+
+  private getLocatorcheckBox(name: string) {
+    const root = this.page.getByRole("treeitem", { name });
+    return {
+      root,
+      checkbox: root.locator(".rc-tree-checkbox"),
+    };
+  }
+   private getLocatorSwithcer(name: string) {
+    const root = this.page.getByRole("treeitem", { name });
+    return {
+      root,
+      switcher: root.locator(".rc-tree-switcher"),
+    };
   }
   async clickOnCheckBox() {
     homePage = new HomePage(this.page);
@@ -34,17 +39,19 @@ export class CheckBoxPage {
     await expect(this.page).toHaveURL(`${url}checkbox`);
     await expect(this.checkBoxHeading).toBeVisible();
   }
-  async varifyCheckBox() {
-    await this.clickOnCheckBox();
-    await this.homeSwitch.click();
-    await this.homecheckBox.click();
-    await expect(this.page.getByText("Desktop")).toBeVisible();
-  
-    await expect(this.page.getByText("Desktop",{exact:true} )).toBeChecked();
-
-    await expect(this.page.getByText("Desktop")).not.toBeChecked();
-    await this.homeSwitch2.click();
-    await expect(this.page.getByText("Commands")).toBeVisible();  
-    
+ 
+  async clickonSwitch(name: string) {
+    const parent = this.getLocatorSwithcer(name);
+    await parent.switcher.click();
+  }
+  async clickonCheck(name:string){
+    const parent=this.getLocatorcheckBox(name)
+    await parent.checkbox.check()
+    await expect(parent.checkbox).toBeChecked()
+  }
+   async clickonUnCheck(name:string){
+    const parent=this.getLocatorcheckBox(name)
+    await parent.checkbox.uncheck()
+    await expect(parent.checkbox).not.toBeChecked()
   }
 }
