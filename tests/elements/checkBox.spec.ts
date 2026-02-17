@@ -1,0 +1,27 @@
+import { test, type Page } from "@playwright/test";
+import { CheckBoxPage } from "../../pages/CheckBoxPage";
+let checkBoxPage: CheckBoxPage; 
+let page: Page;
+
+test.describe.serial("1. Button -1", () => {
+  test.beforeAll(async ({browser}) => {
+    const context = await browser.newContext();
+    page = await context.newPage();
+    checkBoxPage = new CheckBoxPage(page);
+ 
+  });
+  test.afterAll(async () => {
+    await page.close();
+  });
+  test("2.1 Varify Button Heading ", async () => {   
+     await checkBoxPage.varifyCheckBox();
+     
+  })
+  test("2.2 Varify Button Functionality", async () => {
+ 
+  })
+  test("2.3 Verify no button click scenario  ", async () => {
+ 
+  })
+
+});
