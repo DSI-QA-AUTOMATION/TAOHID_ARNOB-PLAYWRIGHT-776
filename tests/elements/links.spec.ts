@@ -21,7 +21,7 @@ test.describe.serial("4. LinkPage", () => {
 
     await linkpage.dynamicNewTab()
   });
-  test("1. Click on the NewTab- Static(_Home_)", async () => {
+  test("4.3 Click on the NewTab- Static(_Home_)", async () => {
     // await linkpage.clickOnLinkPage();
     await linkpage.apiCall()
   });
