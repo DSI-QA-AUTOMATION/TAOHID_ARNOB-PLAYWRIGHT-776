@@ -3,7 +3,7 @@ import { CheckBoxPage } from "../../pages/CheckBoxPage";
 let checkBoxPage: CheckBoxPage; 
 let page: Page;
 
-test.describe.serial("1. CheckBox", () => {
+test.describe.serial("2. CheckBox", () => {
   test.beforeAll(async ({browser}) => {
     const context = await browser.newContext();
     page = await context.newPage();
