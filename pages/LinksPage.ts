@@ -41,7 +41,7 @@ export class LinkPage {
     await this.homeLInk.click();
     const newTab= await promise;
     await newTab.waitForLoadState();
-    await expect(newTab).toHaveURL('https://demoqa.com/')
+    await expect(newTab).toHaveURL(`${url}`)
   }
   async dynamicNewTab(){
     const promise= this.page.waitForEvent('popup');
@@ -49,7 +49,7 @@ export class LinkPage {
     await this.dynamicLink.click();
     const newTab= await promise;
     await newTab.waitForLoadState();
-    await expect(newTab).toHaveURL('https://demoqa.com/')
+    await expect(newTab).toHaveURL(`${url}`)
     this.page.getByRole('link', {name:"No Content", exact:true})
   }
   async apiCall(){
