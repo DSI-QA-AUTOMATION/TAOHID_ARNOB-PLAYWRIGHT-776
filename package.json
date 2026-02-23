@@ -8,13 +8,13 @@
   },
   "scripts": {
     "dev": "yarn start",
-    "taohid":"npx playwright test --ui"
+    "taohid": "npx playwright test --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.58.1",
+    "@playwright/test": "^1.58.2",
     "@types/node": "^25.2.0"
   }
 }
