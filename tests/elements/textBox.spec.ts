@@ -6,7 +6,7 @@ let textBoxpage: textBoxPage;
 let basePage: BasePage;
 let page: Page;
 
-test.describe("4. TextBox -1", () => {
+test.describe("6. TextBox ", () => {
   test.beforeAll(async ({ browser }) => {
     const context = await browser.newContext();
     page = await context.newPage();

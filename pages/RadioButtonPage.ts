@@ -43,13 +43,9 @@ export class RadioButton{
         await expect(this.resultText.getByText('Impressive',{exact:true})).toBeVisible()
         await expect(this.impressiveButton).toBeChecked()
 
-    
         //no button
         await expect(this.noButton).toBeDisabled()
-
-        
         await expect(this.yesButton).not.toBeChecked()
-        
 
 
     }

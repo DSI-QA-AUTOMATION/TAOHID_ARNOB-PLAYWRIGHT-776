@@ -25,7 +25,7 @@ export class HomePage {
     });
     basePage = new BasePage(this.page);
   }
-  async clickOnElements() {
+  async   clickOnElements() {
     await this.element.click();
     await expect(this.page).toHaveURL(`${url}elements`);
   }
