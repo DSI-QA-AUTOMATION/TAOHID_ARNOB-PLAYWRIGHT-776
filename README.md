@@ -1,6 +1,6 @@
 ## Project Overview
 
-This project automates the (DemoQA)[https://demoqa.com/] website using Playwright with TypeScript.
+This project automates the [DemoQA](https://demoqa.com) website using Playwright with TypeScript.
 The automation framework follows the Page Object Model (POM) design pattern
 and focuses on reusability.
 
