@@ -22,11 +22,15 @@ test.describe.serial("2. CheckBox", () => {
      await checkBoxPage.clickonUnCheck("Downloads");
       
   })
-  // test("2.2 Varify Button Functionality", async () => {
+  //@TODO: 
+  // Need to add test coverage
+  // Build a tree structue object from the dom, then dynamically check those
+
+  test("2.2 Varify Button Functionality", async () => {
  
-  // })
-  // test("2.3 Verify no button click scenario  ", async () => {
+  })
+  test("2.3 Verify no button click scenario  ", async () => {
  
-  // })
+  })
 
 });

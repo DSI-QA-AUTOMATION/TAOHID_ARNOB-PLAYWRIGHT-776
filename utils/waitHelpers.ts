@@ -20,7 +20,14 @@ export class Elements {
         basePage=new BasePage(this.page)
         await basePage.navigatetoBasePage()
         await homePage.clickOnForms()
-           
+        
+    }
+    async alertFrameClicker(){
+        homePage=new HomePage(this.page)
+        basePage=new BasePage(this.page)
+        await basePage.navigatetoBasePage()
+        await homePage.clickOnAlertFrameWindows()
+        
     }
   
 
