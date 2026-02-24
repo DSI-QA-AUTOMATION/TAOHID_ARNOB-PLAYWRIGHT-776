@@ -15,6 +15,13 @@ export class Elements {
         await homePage.clickOnElements()
            
     }
+    async formClicker(){
+        homePage=new HomePage(this.page)
+        basePage=new BasePage(this.page)
+        await basePage.navigatetoBasePage()
+        await homePage.clickOnForms()
+           
+    }
   
 
 }

@@ -1,0 +1,17 @@
+[
+    {
+    "PracticeForm":{
+        "firstName":"Taohid",
+        "lastName":"Arnbo",
+        "email":"taohid@gmial.com",
+        "Gender":"Male",
+        "phoneNumber": 4125368974,
+        "DateOfBirht":"28-02-2025",
+        "subject": "CSE",
+        "hobbies":"Music",
+        "currrentAdress": "Dhaka, Bangladesh"
+
+
+    }
+}
+]

@@ -13,7 +13,7 @@ test.describe('8. WebTable ', ()=>{
     test.afterAll(async()=>{
         await page.close()
     })
-      test('8.3 Add User', async()=>{
+      test('8.1 Add User and varify the new user assertion', async()=>{
         await webtablepage.clickOnWebTable()
         await webtablepage.userAdd();
         await webtablepage.varifywebTableContent()
@@ -26,7 +26,7 @@ test.describe('8. WebTable ', ()=>{
 
     // })
 
-    test('8.2 Search', async()=>{
+    test('8.2 Search functionality check', async()=>{
         await webtablepage.varifySerachButton('10000')
         await webtablepage.varifySerachButton('Kierra')
     })
