@@ -29,3 +29,6 @@ Key Objectives:
 6. **Run tests** <br>
    yarn taohid or npm run taohid
 
+## TestCases
+[here](./testcases/DemoQA_End_to_End_Playwright_Test_Cases.xlsx)
+
