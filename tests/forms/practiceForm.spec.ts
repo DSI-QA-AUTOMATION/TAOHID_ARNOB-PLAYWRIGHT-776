@@ -3,7 +3,7 @@ import { practiceFormPage } from "../../pages/PracticeFormPage";
 let page: Page;
 let practiceformPage: practiceFormPage;
 
-test.describe.serial("1. Button -1", () => {
+test.describe.serial("9. Practice Form -1", () => {
   test.beforeAll(async ({browser}) => {
     const context = await browser.newContext();
     page = await context.newPage();
@@ -13,17 +13,17 @@ test.describe.serial("1. Button -1", () => {
   test.afterAll(async () => {
     await page.close();
   });
-  test("1.1 Varify Button Heading ", async () => {   
+  test("9.1 Varify PracticeForm ", async () => {   
     await practiceformPage.clickOnPracticeForm()
 
      
   })
-  test("1.2 Varify Button Functionality", async () => {
+  test("9.2 User details: formfillup ", async () => {
     await practiceformPage.userForm()
     
   })
-  test("1.3 Verify no button click scenario  ", async () => {
-   
+  test("9.3 Verify modal content with respective user details  ", async () => {
+      await practiceformPage.varifyModalContent()
   })
 
 });
