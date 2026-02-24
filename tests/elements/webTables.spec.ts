@@ -13,8 +13,22 @@ test.describe('8. WebTable ', ()=>{
     test.afterAll(async()=>{
         await page.close()
     })
-    test('8.1 WebTable: ', async()=>{
+      test('8.3 Add User', async()=>{
         await webtablepage.clickOnWebTable()
-
+        await webtablepage.userAdd();
+        await webtablepage.varifywebTableContent()
+        
     })
+    // test('8.1 WebTable: ', async()=>{
+    //     await webtablepage.clickOnWebTable()
+        
+        
+
+    // })
+
+    test('8.2 Search', async()=>{
+        await webtablepage.varifySerachButton('10000')
+        await webtablepage.varifySerachButton('Kierra')
+    })
+  
 })
