@@ -5,7 +5,9 @@ let uploadDownload: UploadDownload;
 
 test.describe('7. Upload download ', ()=>{
     test.beforeAll(async({browser})=>{
-        const context= await browser.newContext()
+        const context= await browser.newContext({
+            acceptDownloads:true
+        })
         page= await context.newPage()
         uploadDownload= new UploadDownload(page)
 

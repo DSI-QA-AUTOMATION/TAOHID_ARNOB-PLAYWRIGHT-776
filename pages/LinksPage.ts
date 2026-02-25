@@ -69,7 +69,7 @@ export class LinkPage {
       await this.resulTextLocator.scrollIntoViewIfNeeded();
       await expect(this.resulTextLocator.getByText(apilabel.code)).toBeVisible();
       await expect(this.resulTextLocator.getByText(apilabel.status)).toBeVisible();
-    }
+    } 
   }
 
 }
